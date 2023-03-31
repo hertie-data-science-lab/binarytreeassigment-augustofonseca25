@@ -192,5 +192,34 @@ class LinkedBinaryTree(BinaryTree):
             node._right = t2.root
             t2._root = None
             t2._size = 0
-            
 
+    '''
+    # Methods designed to traverse the tree and get the element of three nodes recursively: 
+    the root, the left child and the right child. 
+    The order will be different for each one.
+    '''
+    def preorder_print(self, p, report):
+        ''' Print order: the Root, the left child and the right child'''
+        node_ref = self._validate(p) # Gets the node at the position p
+
+        report += (str(node_ref._element) + "-") # Gets the element of the node at position 'p'
+        report = self.preorder_print(self.left(p), report) #Calls the method recursively for the left child of the node at position 'p'
+        report = self.preorder_print(self.right(p), report) #Calls the method recursively for the right child of the node at position 'p'
+        return report # Returns the string with all elements in the nodes, separated by a '-'
+
+
+    def inorder_print(self, p, report):
+        ''' Print order: the left child, the Root, and the right child'''
+        node_ref = self._validate(p)  # Gets the node at the position p
+        report = self.inorder_print(self.left(p), report) #Calls the method recursively for the left child of the node at position 'p'
+        report += (str(node_ref._element) + "-") # Gets the element of the node at position 'p'
+        report = self.inorder_print(self.right(p), report) #Calls the method recursively for the right child of the node at position 'p'
+        return report # Returns the string with all elements in the nodes, separated by a '-'
+
+    def postorder_print(self, p, report):
+        ''' Print order: the left child, the right child and the Root'''
+        node_ref = self._validate(p)  # Gets the node at the position p
+        report = self.postorder_print(self.left(p), report)  #Calls the method recursively for the left child of the node at position 'p'
+        report = self.postorder_print(self.right(p), report) #Calls the method recursively for the right child of the node at position 'p'
+        report += (str(node_ref._element) + "-") # Gets the element of the node at position 'p'
+        return report # Returns the string with all elements in the nodes, separated by a '-'
