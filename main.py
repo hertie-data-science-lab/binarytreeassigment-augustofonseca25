@@ -14,17 +14,17 @@ lbt = LinkedBinaryTree()
 #print(len(lbt))
 #print(lbt.root())
 
-lbt._add_root(1)
-lbt._add_left(lbt.root(), 2)
-lbt._add_right(lbt.root(), 3)
+lbt._add_root("A")
+lbt._add_left(lbt.root(), "B")
+lbt._add_right(lbt.root(), "C")
 
 l = lbt.left(lbt.root())
 r = lbt.right(lbt.root())
 
-lbt._add_left(l, 4)
-lbt._add_right(l, 5)
-lbt._add_left(r, 6)
-lbt._add_right(r, 7)
+lbt._add_left(l, "D")
+lbt._add_right(l, "E")
+lbt._add_left(r, "F")
+lbt._add_right(r, "G")
 
 
 
@@ -41,13 +41,13 @@ Where:
 '''
 # For the preorder from the root, please run the code below.
 # If you want to start from another position, just replace the argument "lbt.root()" for the position of the respective node.
-print(lbt.preorder_print(lbt.root(),""))
+print("The preoder is:", lbt.preorder_print(lbt.root(),""))
 
 # For the inorder from the root, please run the code below.
 # If you want to start from another position, just replace the argument "lbt.root()" for the position of the respective node.
-print(lbt.inorder_print(lbt.root(),""))
+print("The inorder is:", lbt.inorder_print(lbt.root(),""))
 
 # For the postorder from the root, please run the code below.
 # If you want to start from another position, just replace the argument "lbt.root()" for the position of the respective node.
-print(lbt.postorder_print(lbt.root(),""))
+print("The postorder is:", lbt.postorder_print(lbt.root(),""))
 
